@@ -1,6 +1,13 @@
 # Imported modules
 import sys
 
+# Welcome message for the user
+def Welcome_Message():
+    print("Welcome to the calculator program \n" \
+    "Type in your calculation, ensuring spaces between all numbers and operators, then press enter \n" \
+    "Example: 1 + 1 \n" \
+    "Type 'exit' to close the program \n")
+
 # User input function, takes in the user's calculation and returns it, if the user types 'exit' the program will close
 def User_Input():
     calc = input("Enter your calculation: ")
@@ -54,6 +61,7 @@ def BODMAS(calc):
     
 # Function to use the user input, split and cast, and BODMAS functions to run the calculator program
 def Running():
+    Welcome_Message()
     while True:
         user_calc = User_Input()
         split_calc = Split_Cast_Calculation(user_calc)
