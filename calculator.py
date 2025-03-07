@@ -53,11 +53,12 @@ def BODMAS(calc):
         return calc
     
 # Function to use the user input, split and cast, and BODMAS functions to run the calculator program
-def running():
+def Running():
     while True:
         user_calc = User_Input()
         split_calc = Split_Cast_Calculation(user_calc)
         completed_calc = BODMAS(split_calc)
-        print(completed_calc)
+        print(*completed_calc) # The * is used to unpack the list and print it as individual items, removing any brackets
 
-running()
+
+Running()
