@@ -27,6 +27,7 @@ def User_Input():
 # Function to split the user's calculation into a list, then cast all numbers as integers while leaving the operators as strings
 def Split_Cast_Calculation(calculation):
     split_calc = calculation.split(" ")
+    print(split_calc)
     for item in split_calc:
         if item.isdigit():
             split_calc[split_calc.index(item)] = int(item)
@@ -71,7 +72,7 @@ def BODMAS(calc):
 
 # Function to use the user input, split and cast, and BODMAS functions to run the calculator program
 def Running():
-    #Welcome_Message()
+    Welcome_Message()
     while True:
         user_calc = User_Input()
         split_calc = Split_Cast_Calculation(user_calc)
