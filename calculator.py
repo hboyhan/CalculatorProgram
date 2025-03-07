@@ -8,3 +8,11 @@ def User_Input():
         sys.exit()
     else:
         return calc
+    
+# Function to split the user's calculation into a list
+def Split_Cast_Calculation(calculation):
+    split_calc = calculation.split(" ")
+    return split_calc
+
+result = Split_Cast_Calculation(User_Input())
+print(result)
