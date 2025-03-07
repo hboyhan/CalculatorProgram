@@ -19,5 +19,24 @@ def Split_Cast_Calculation(calculation):
             continue
     return split_calc
 
-result = Split_Cast_Calculation(User_Input())
+# Function to calculate the user's calculation using BODMAS, using match statements to determine the operator and then performing the calculation
+def BODMAS(calc):
+    for x in calc:
+        match x:
+            case "+":
+                index = calc.index("+")
+                calc[index] = calc[index-1] + calc[index+1]
+                calc.pop(index-1)
+                calc.pop(index)
+            case "-":
+                index = calc.index("-")
+                calc[index] = calc[index-1] - calc[index+1]
+                calc.pop(index-1)
+                calc.pop(index)
+            case int:
+                continue
+        return calc
+
+calculation = Split_Cast_Calculation(User_Input())
+result = BODMAS(calculation)
 print(result)
