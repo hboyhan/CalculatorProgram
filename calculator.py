@@ -51,7 +51,13 @@ def BODMAS(calc):
             case int:
                 continue
         return calc
+    
+# Function to use the user input, split and cast, and BODMAS functions to run the calculator program
+def running():
+    while True:
+        user_calc = User_Input()
+        split_calc = Split_Cast_Calculation(user_calc)
+        completed_calc = BODMAS(split_calc)
+        print(completed_calc)
 
-calculation = Split_Cast_Calculation(User_Input())
-result = BODMAS(calculation)
-print(result)
+running()
