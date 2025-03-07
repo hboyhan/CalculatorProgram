@@ -9,9 +9,14 @@ def User_Input():
     else:
         return calc
     
-# Function to split the user's calculation into a list
+# Function to split the user's calculation into a list, then cast all numbers as integers while leaving the operators as strings
 def Split_Cast_Calculation(calculation):
     split_calc = calculation.split(" ")
+    for item in split_calc:
+        if item.isdigit():
+            split_calc[split_calc.index(item)] = int(item)
+        else:
+            continue
     return split_calc
 
 result = Split_Cast_Calculation(User_Input())
