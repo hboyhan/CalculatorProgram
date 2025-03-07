@@ -36,42 +36,42 @@ def Split_Cast_Calculation(calculation):
 
 # Function to calculate the user's calculation using BODMAS, using match statements to determine the operator and then performing the calculation
 def BODMAS(calc):
-    for x in calc:
-        match x:
-            case "**":
-                index = calc.index("**")
-                calc[index] = calc[index-1] ** calc[index+1]
-                calc.pop(index-1)
-                calc.pop(index)
-            case "/":
-                index = calc.index("/")
-                calc[index] = calc[index-1] / calc[index+1]
-                calc.pop(index-1)
-                calc.pop(index)
-            case "*":
-                index = calc.index("*")
-                calc[index] = calc[index-1] * calc[index+1]
-                calc.pop(index-1)
-                calc.pop(index)
-            case "+":
-                index = calc.index("+")
-                calc[index] = calc[index-1] + calc[index+1]
-                calc.pop(index-1)
-                calc.pop(index)
-            case "-":
-                index = calc.index("-")
-                calc[index] = calc[index-1] - calc[index+1]
-                calc.pop(index-1)
-                calc.pop(index)
-            case int:
-                continue
-        return calc
-# CURRENT ISSUE - The program is not calculating the correct answer if the equation is more then 2 numbers, it is only calculating the first two numbers in the list, Cause: The for loop is skipping over certain operators as the list has been modified and the index is no longer correct. Solution: Ask Sartak for help.
+    while len(calc) > 1:
+        for x in calc:
+            match x:
+                case "**":
+                    index = calc.index("**")
+                    calc[index] = calc[index-1] ** calc[index+1]
+                    calc.pop(index-1)
+                    calc.pop(index)
+                case "/":
+                    index = calc.index("/")
+                    calc[index] = calc[index-1] / calc[index+1]
+                    calc.pop(index-1)
+                    calc.pop(index)
+                case "*":
+                    index = calc.index("*")
+                    calc[index] = calc[index-1] * calc[index+1]
+                    calc.pop(index-1)
+                    calc.pop(index)
+                case "+":
+                    index = calc.index("+")
+                    calc[index] = calc[index-1] + calc[index+1]
+                    calc.pop(index-1)
+                    calc.pop(index)
+                case "-":
+                    index = calc.index("-")
+                    calc[index] = calc[index-1] - calc[index+1]
+                    calc.pop(index-1)
+                    calc.pop(index)
+                case int:
+                    continue
+    return calc
 
 
 # Function to use the user input, split and cast, and BODMAS functions to run the calculator program
 def Running():
-    Welcome_Message()
+    #Welcome_Message()
     while True:
         user_calc = User_Input()
         split_calc = Split_Cast_Calculation(user_calc)
