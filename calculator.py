@@ -23,6 +23,16 @@ def Split_Cast_Calculation(calculation):
 def BODMAS(calc):
     for x in calc:
         match x:
+            case "/":
+                index = calc.index("/")
+                calc[index] = calc[index-1] / calc[index+1]
+                calc.pop(index-1)
+                calc.pop(index)
+            case "*":
+                index = calc.index("*")
+                calc[index] = calc[index-1] * calc[index+1]
+                calc.pop(index-1)
+                calc.pop(index)
             case "+":
                 index = calc.index("+")
                 calc[index] = calc[index-1] + calc[index+1]
